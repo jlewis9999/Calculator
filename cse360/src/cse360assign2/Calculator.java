@@ -8,12 +8,14 @@
 package cse360assign2;
 public class Calculator {
 	private int total;
+	private String history;
 
 	/**
-	 * This constructor initializes the total variable.
+	 * This constructor initializes the total and history variables.
  	 */
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		history = "0";
 	}
 	
 	/**
@@ -25,31 +27,38 @@ public class Calculator {
 	}
 	
 	/**
-	 * This method adds value to the total variable
+	 * This method adds value to the total variable.  It also records the
+	 * operation into the history string.
 	 * @param value the integer to be added
 	 */
 	public void add (int value) {
 		total += value;
+		history += " + " + value;
 	}
 	
 	/**
-	 * This method subtracts value from the total variable
+	 * This method subtracts value from the total variable. It also records the
+	 * operation into the history string.
 	 * @param value the integer to be subtracted
 	 */
 	public void subtract (int value) {
 		total -= value;
+		history += " - " + value;
 	}
 	
 	/**
-	 * This method multiplies the total variable by value
+	 * This method multiplies the total variable by value. It also records the
+	 * operation into the history string.
 	 * @param value the integer by which to be multiplied
 	 */
 	public void multiply (int value) {
 		total *= value;
+		history += " * " + value;
 	}
 	
 	/**
-	 * This method divides the total variable by value
+	 * This method divides the total variable by value. It also records the
+	 * operation into the history string.
 	 * @param value the integer by which to be divided
 	 */
 	public void divide (int value) {
@@ -57,13 +66,14 @@ public class Calculator {
 			total = 0;
 		else
 			total /= value;
+		history += " / " + value;
 	}
 	
 	/**
 	 * This method returns the history of the Calculator object
-	 * @return the String of previous total variables
+	 * @return the String of previous operations
 	 */
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }
